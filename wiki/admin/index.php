@@ -10,24 +10,13 @@
 
     if(isset($_REQUEST['btn_login']))	
     {
-        $username	=strip_tags($_REQUEST["txt_username_email"]);
-        $email		=strip_tags($_REQUEST["txt_username_email"]);	
-        $password	=strip_tags($_REQUEST["txt_password"]);			
+        $username	=strip_tags($_REQUEST["usernamePost"]);	
+        $password	=strip_tags($_REQUEST["passwordPost"]);			
             
-        // check if "username/email" textbox not empty 
-        if(empty($username)){						
-            $errorMsg[]="please enter username or email";	
-        }
-        // check if "username/email" textbox not empty
-        else if(empty($email)){
-            $errorMsg[]="please enter username or email";	 
-        }
-        // check if "passowrd" textbox not empty 
-        else if(empty($password)){
-            $errorMsg[]="please enter password";	
-        }
-        else
-        {
+        // check if "username/email" or password textbox not empty 
+        if(empty($username) || empty($password)){						
+            $errorMsg[]="Vul een gebruikersnaam en wachtwoord in!";	
+        }else{
             try
             {
                 $select_stmt=$pdo->prepare("SELECT * FROM users WHERE username=:uname OR email=:uemail");
@@ -52,12 +41,12 @@
                     }
                     else
                     {
-                        $errorMsg[]="wrong username or email";
+                        $errorMsg[]="De gebruikersnaam en/of het wachtwoord is onjuist.";
                     }
                 }
                 else
                 {
-                    $errorMsg[]="wrong username or email";
+                    $errorMsg[]="De gebruikersnaam en/of het wachtwoord is onjuist.";
                 }
             }
             catch(PDOException $e)
@@ -106,9 +95,9 @@
             }
       ?>   
       <label for="inputUsername" class="sr-only">Gebruikersnaam:</label>
-      <input type="text" id="inputUsername" name="txt_username_email" class="form-control" placeholder="Gebruikersnaam" required autofocus>
+      <input type="text" id="inputUsername" name="usernamePost" class="form-control" placeholder="Gebruikersnaam" required autofocus>
       <label for="inputPassword" class="sr-only">Wachtwoord:</label>
-      <input type="password" name="txt_password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+      <input type="password" name="passwordPost" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
       <button class="btn btn-lg btn-primary btn-block" name="btn_login" type="submit">Inloggen</button>
       <p class="mt-5 mb-3 text-muted">&copy; Senstable 2020</p>
     </form>
