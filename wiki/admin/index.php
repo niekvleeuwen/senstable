@@ -47,7 +47,7 @@
                         }
                         else
                         {
-                            $errorMsg[]="wrong password";
+                            $errorMsg[]="De gebruikersnaam en/of het wachtwoord is onjuist.";
                         }
                     }
                     else
@@ -69,84 +69,48 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-        <title>Admin | Senstable</title>
-                
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <script src="js/jquery-1.12.4-jquery.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>	
-    </head>
-	<body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../index.html">Senstable</a>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin | Senstable</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin">
+      <img class="mb-4" src="img/user.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Inloggen</h1>
+      <?php
+            if(isset($errorMsg))
+            {
+                foreach($errorMsg as $error)
+                {
+                ?>
+                    <div class="alert alert-danger">
+                        <strong><?php echo $error; ?></strong>
+                    </div>
+                <?php
+                }
+            }
+            if(isset($loginMsg))
+            {
+            ?>
+                <div class="alert alert-success">
+                    <strong><?php echo $loginMsg; ?></strong>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="../index.html">Terug naar home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-	    <div class="wrapper">	
-	        <div class="container">
-		        <div class="col-lg-12">
-                    <?php
-                    if(isset($errorMsg))
-                    {
-                        foreach($errorMsg as $error)
-                        {
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong><?php echo $error; ?></strong>
-                            </div>
-                        <?php
-                        }
-                    }
-                    if(isset($loginMsg))
-                    {
-                    ?>
-                        <div class="alert alert-success">
-                            <strong><?php echo $loginMsg; ?></strong>
-                        </div>
-                    <?php
-                    }
-                    ?>   
-			        <center>
-                        <h2>Login</h2>
-                    </center>
-			        <form method="post" class="form-horizontal">
-				        <div class="form-group">
-				            <label class="col-sm-3 control-label">Gebruikersnaam</label>
-				            <div class="col-sm-6">
-                                <input type="text" name="txt_username_email" class="form-control" placeholder="Voer uw gebruikersnaam in" />
-                            </div>
-				        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Wachtwoord</label>
-                            <div class="col-sm-6">
-                                <input type="password" name="txt_password" class="form-control" placeholder="Voer uw wachtwoord in" />
-                            </div>
-                        </div>
-				        <div class="form-group">
-				            <div class="col-sm-offset-3 col-sm-9 m-t-15">
-				                <input type="submit" name="btn_login" class="btn btn-success" value="Login">
-				            </div>
-				        </div>
-			        </form>
-		        </div>
-	        </div>	
-	    </div>									
-	</body>
+            <?php
+            }
+      ?>   
+      <label for="inputUsername" class="sr-only">Gebruikersnaam:</label>
+      <input type="text" id="inputUsername" name="txt_username_email" class="form-control" placeholder="Gebruikersnaam" required autofocus>
+      <label for="inputPassword" class="sr-only">Wachtwoord:</label>
+      <input type="password" name="txt_password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+      <button class="btn btn-lg btn-primary btn-block" name="btn_login" type="submit">Inloggen</button>
+      <p class="mt-5 mb-3 text-muted">&copy; Senstable 2020</p>
+    </form>
+  </body>
 </html>

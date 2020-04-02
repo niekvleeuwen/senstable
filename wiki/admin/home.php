@@ -2,7 +2,7 @@
 	require_once '../config/connect.php';
 
 	session_start();
-	//check unauthorize user not access in "home.php" page
+	// check if the user has acces to the home page
 	if(!isset($_SESSION['user_login']))	
 	{
 		header("location: index.php");
@@ -10,83 +10,89 @@
 								
 ?>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-        <title>Admin | Senstable</title>
-                
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <script src="js/jquery-1.12.4-jquery.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>	
-    </head>
-	<body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../index.html">Senstable</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Admin</a></li>
-                    </ul>
-                </div>
-            </div>
+<html lang="nl">
+  	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Dashboard | Senstable</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/dashboard.css" rel="stylesheet">
+  	</head>
+    <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Senstable</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Zoeken" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="logout.php">Uitloggen</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Sensors
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="code"></span>
+                  Code
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Ontwerpen
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
-		<div class="wrapper">
-			<div class="container">	
-				<div class="row">
-					<div class="col-lg-12">
-						<center>
-							<h2>
-								<?php
-									$id = $_SESSION['user_login'];
-									
-									$select_stmt = $pdo->prepare("SELECT * FROM users WHERE user_id=:uid");
-									$select_stmt->execute(array(":uid"=>$id));
-						
-									$row=$select_stmt->fetch(PDO::FETCH_ASSOC);
-									
-									if(isset($_SESSION['user_login']))
-									{
-									?>
-										Welkom
-									<?php
-											echo $row['username'];
-									}
-								?>
-							</h2>
-							<a href="logout.php">Uitloggen</a>
-						</center>
-					</div>
-				</div>
-				<hr />
-			    <div class="row">
-					<h3>Sensoren</h3>
-					<table class="table">
-						<thead>
-							<tr>
-							<th scope="col">#</th>
-							<th scope="col">Naam</th>
-							<th scope="col">Beschrijving</th>
-							<th scope="col">Serienummer</th>
-							<th scope="col">Datum toegevoegd</th>
-							</tr>
-						</thead>
-						<tbody id="table">
-							
-						</tbody>
-					</table>
-				</div>
-			</div>	
-		</div>	
-		<script src="js/home.js"></script>							
-	</body>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <h2>Sensors</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Naam</th>
+                <th scope="col">Beschrijving</th>
+                <th scope="col">Serienummer</th>
+                <th scope="col">Datum toegevoegd</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- JS
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="js/home.js"></script>							
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>
 </html>

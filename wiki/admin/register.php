@@ -73,91 +73,54 @@ if(isset($_REQUEST['btn_register']))
 }
 ?>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-        <title>Admin | Senstable</title>
-                
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <script src="js/jquery-1.12.4-jquery.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>	
-    </head>
-	<body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../index.html">Senstable</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="../index.html">Terug naar home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-		<div class="wrapper">
-			<div class="container">
-				<div class="col-lg-12">
-					<?php
-						if(isset($errorMsg))
-						{
-							foreach($errorMsg as $error)
-							{
-							?>
-								<div class="alert alert-danger">
-									<strong>WRONG ! <?php echo $error; ?></strong>
-								</div>
-							<?php
-							}
-						}
-						if(isset($registerMsg))
+<html lang="nl">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Admin | Senstable</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/signin.css" rel="stylesheet">
+	</head>
+	
+	<body class="text-center">
+    	<form  method="post" class="form-signin">
+      		<img class="mb-4" src="img/user.svg" alt="" width="72" height="72">
+      		<h1 class="h3 mb-3 font-weight-normal">Registreren</h1>
+			<?php
+					if(isset($errorMsg))
+					{
+						foreach($errorMsg as $error)
 						{
 						?>
-							<div class="alert alert-success">
-								<strong><?php echo $registerMsg; ?></strong>
+							<div class="alert alert-danger">
+								<strong><?php echo $error; ?></strong>
 							</div>
 						<?php
 						}
-					?>   
-					<center><h2>Register Page</h2></center>
-					<form method="post" class="form-horizontal">
-						<div class="form-group">
-						<label class="col-sm-3 control-label">Username</label>
-						<div class="col-sm-6">
-						<input type="text" name="txt_username" class="form-control" placeholder="enter username" />
+					}
+					if(isset($registerMsg))
+					{
+					?>
+						<div class="alert alert-success">
+							<strong><?php echo $registerMsg; ?></strong>
 						</div>
-						</div>
-						
-						<div class="form-group">
-						<label class="col-sm-3 control-label">Email</label>
-						<div class="col-sm-6">
-						<input type="text" name="txt_email" class="form-control" placeholder="enter email" />
-						</div>
-						</div>
-							
-						<div class="form-group">
-						<label class="col-sm-3 control-label">Password</label>
-						<div class="col-sm-6">
-						<input type="password" name="txt_password" class="form-control" placeholder="enter passowrd" />
-						</div>
-						</div>
-							
-						<div class="form-group">
-						<div class="col-sm-offset-3 col-sm-9 m-t-15">
-						<input type="submit"  name="btn_register" class="btn btn-primary " value="Register">
-						</div>
-						</div>
-					</form>
-				</div>
+					<?php
+					}
+			?>   
+			<div class="form-group">
+				<label for="inputUsername" class="sr-only">Gebruikersnaam:</label>
+				<input type="text" id="inputUsername" name="txt_username" class="form-control" placeholder="Gebruikersnaam" required autofocus>
+
+				<label for="inputEmail" class="sr-only">Email:</label>
+				<input type="text" id="inputEmail" name="txt_email" class="form-control" placeholder="Email" required>
+
+				<label for="inputPassword" class="sr-only">Wachtwoord:</label>
+				<input type="password" name="txt_password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+				<button class="btn btn-lg btn-primary btn-block" name="btn_register" type="submit">Registreren</button>
+				<p class="mt-5 mb-3 text-muted">&copy; Senstable 2020</p>
 			</div>
-		</div>
-	</body>
+		</form>
+  </body>
 </html>
