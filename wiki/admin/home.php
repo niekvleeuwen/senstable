@@ -201,8 +201,24 @@
 					<button type="submit" name="addSensorButton" class="btn btn-primary">Toevoegen</button>
 				</form>
 			</div>
-			<div class="col-sm-6"></div>
-          </div>
+			<div class="col-sm-6">
+				<h4>Sensor verwijderen</h4>
+				<hr>
+				<form method="post" action="delete.php" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Sensor</label>
+						<select class="form-control" id="exampleFormControlSelect1">
+						<!--- Hier met php alle sensoren ophalen en displayen -->
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						</select>
+					</div>
+					<button type="submit" name="addSensorButton" class="btn btn-primary">Verwijderen</button>
+				</form>
+          	</div>
 		  <br />
         </main>
       </div>
