@@ -84,10 +84,16 @@ function removeSensor(sensorId){
     request.open("POST", "https://niekvanleeuwen.nl/senstable/api/sensors/delete/", true);
     request.setRequestHeader('Content-type', 'application/json');
     request.send(JSON.stringify(data));
+
+    request.onload = function() {
+        console.log(request.responseText);
+        
+        clearSensorTable();
+        loadSensorTable();
+    };
 }
 
 function addSensor(){
-    clearSensorTable();
 
     var request = new XMLHttpRequest();
     var name = document.getElementById("sensName").value;
@@ -120,7 +126,10 @@ function addSensor(){
     request.setRequestHeader('Content-type', 'application/json');
     request.send(JSON.stringify(data));
 
-    console.log(request.responseText);
-    
-    loadSensorTable();
+    request.onload = function() {
+        console.log(request.responseText);
+        
+        clearSensorTable();
+        loadSensorTable();
+    };
 }
