@@ -69,7 +69,7 @@
             <table class="table table-striped table-sm" id="sensorTable">
 				<thead>
 					<tr>
-						<th scope="col" class="sens-id">#</th>
+						<th scope="col">#</th>
 						<th scope="col">Naam</th>
 						<th scope="col">Beschrijving</th>
 						<th scope="col">Serienummer</th>
@@ -130,6 +130,8 @@
 	<script><?php include 'js/home.js'; ?></script>						
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js" type="text/javascript"></script>
+    <!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
       feather.replace()
     </script>

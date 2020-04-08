@@ -15,7 +15,7 @@ function loadSensorTable(){
         if (request.status >= 200 && request.status < 400) {
             data.forEach(sensor => {
                 const entry = document.createElement("tr");
-
+                
                 const id = document.createElement("td");
                 id.textContent = sensor.id;
 
@@ -36,7 +36,10 @@ function loadSensorTable(){
                 btn.type = "button";
                 btn.className = "btn btn-delete mb-1 h-25 btn-delete";
                 btn.value = "Delete";
-                btn.name = `btn-delete-${sensor.id}`
+                btn.name = `btn-delete-${sensor.id}`;
+                btn.onclick = function () {
+                    removeSensor(btn.name.replace("btn-delete-", ""));
+                };
                 deleteSensor.appendChild(btn);
 
                 entry.appendChild(id)
@@ -72,6 +75,17 @@ function closeForm() {
     document.getElementById("popup-form").style.display = "none";
 }
 
+function removeSensor(sensorId){
+    var data = {
+        "id": sensorId
+    };
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "https://niekvanleeuwen.nl/senstable/api/sensors/delete/", true);
+    request.setRequestHeader('Content-type', 'application/json');
+    request.send(JSON.stringify(data));
+}
+
 function addSensor(){
     clearSensorTable();
 
@@ -102,7 +116,6 @@ function addSensor(){
         "code": code
     };
 
-    console.log(data);
     request.open("POST", "https://niekvanleeuwen.nl/senstable/api/sensors/add/", true);
     request.setRequestHeader('Content-type', 'application/json');
     request.send(JSON.stringify(data));
@@ -111,12 +124,3 @@ function addSensor(){
     
     loadSensorTable();
 }
-
-$(".btn-delete").click(function() {
-    var $item = $(this).closest("tr")   // Finds the closest row <tr> 
-                       .find(".sens-id")     // Gets a descendent with class="nr"
-                       .text();         // Retrieves the text within <td>
-
-    alert($item);       // Outputs the answer
-});
-
