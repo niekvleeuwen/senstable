@@ -169,12 +169,10 @@ function getTableData(id){
     request.onload = function() {
         //parse the object
         var data = JSON.parse(this.responseText);
-        console.log(data);        
         openEditForm();
         
         var hd = document.getElementById("edit-form-header");
         hd.innerHTML = `${hd.innerHTML}${data[0]['id']}`;
-        console.log(hd.innerHTML);
 
         Object.keys(data[0]).forEach(function(key){
             if(document.getElementById(`sens-${key}-edit`) !== null)
@@ -196,16 +194,12 @@ function saveSensor(){
         "wiki": document.getElementById(`sens-wiki-edit`).value,
         "code": document.getElementById(`sens-code-edit`).value
     };
-    console.log(data);
     request.send(JSON.stringify(data));
 
     request.onload = function() {
         var json = JSON.parse(request.responseText);
         showResponse(json);
         closeEditForm();
-
-        var hd = document.getElementById("edit-form-header");
-        hd.innerHTML = `Sensor bewerken: #`;
     }
 
 }
@@ -216,4 +210,6 @@ function openEditForm() {
 
 function closeEditForm() {
     document.getElementById("edit-popup-form").style.display = "none";
+    var hd = document.getElementById("edit-form-header");
+    hd.innerHTML = `Sensor bewerken: #`;
 }
