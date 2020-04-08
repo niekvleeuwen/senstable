@@ -2,10 +2,6 @@ body {
   font-size: .875rem;
 }
 
-br{
-  border: 2px solid #666;
-}
-
 .feather {
   width: 16px;
   height: 16px;
@@ -96,23 +92,27 @@ br{
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
-.form-content{
-  margin: 5px;
-}
-
 .form-popup {
   background-color: white;
   display: none;
-  position: fixed;
-  width: 40%;
-  left: 45%;
-  top:5%;
-  transform: translate(-35%,5%);
-  border: 2px solid #666;
-  z-index: 9;
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 5%;
+  border: 1px solid #666;
+  z-index: 1000;
 }
 
-.delete-sensor:hover{
+.form-content {
+  margin-bottom: 7px;
+  margin-left: 13%;
+}
+
+.form-input{
+  width: 75%;
+}
+
+.delete-sensor:hover, .edit-sensor:hover{
   cursor: pointer;
 }
 
@@ -122,4 +122,9 @@ br{
 
 .add-sensor {
   cursor: pointer;
+}
+
+.lbl-status{
+  float: right;
+  position: relative;
 }

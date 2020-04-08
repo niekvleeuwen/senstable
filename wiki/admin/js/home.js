@@ -15,13 +15,13 @@ function loadSensorTable(){
         if (request.status >= 200 && request.status < 400) {
             data.forEach(sensor => {
                 const entry = document.createElement("tr");
-                
+
                 const id = document.createElement("td");
                 id.textContent = sensor.id;
 
                 const name = document.createElement("td");
                 name.textContent = sensor.name;
-
+                
                 const description = document.createElement("td");
                 description.textContent = sensor.short_description;
 
@@ -40,12 +40,22 @@ function loadSensorTable(){
                 };
                 deleteSensor.appendChild(i_element);
 
+                const editSensor = document.createElement("td");
+                i_element = document.createElement('I');
+                i_element.className = "fas fa-edit edit-sensor";
+                i_element.name = `${sensor.id}`;
+                i_element.onclick = function () {
+                    getTableData(i_element.name);
+                };
+                editSensor.appendChild(i_element);
+
                 entry.appendChild(id)
                 entry.appendChild(name);
                 entry.appendChild(description);
                 entry.appendChild(serialNumber);
                 entry.appendChild(dateAdded);
                 entry.appendChild(deleteSensor);
+                entry.appendChild(editSensor);
                 tbody.appendChild(entry);
             });
         }
@@ -74,25 +84,24 @@ function closeForm() {
 }
 
 function removeSensor(sensorId){
-    var data = {
-        "id": sensorId
-    };
-
-    var request = new XMLHttpRequest();
-    request.open("POST", "https://niekvanleeuwen.nl/senstable/api/sensors/delete/", true);
-    request.setRequestHeader('Content-type', 'application/json');
-    request.send(JSON.stringify(data));
-
-    request.onload = function() {
-        console.log(request.responseText);
-        
-        clearSensorTable();
-        loadSensorTable();
-    };
+    if(confirm(`Weet u zeker dat u deze sensor, #${sensorId}, wilt verwijderen?`)){
+        var data = {
+            "id": sensorId
+        };
+    
+        var request = new XMLHttpRequest();
+        request.open("POST", "https://niekvanleeuwen.nl/senstable/api/sensors/delete/", true);
+        request.setRequestHeader('Content-type', 'application/json');
+        request.send(JSON.stringify(data));
+    
+        request.onload = function() {
+            var json = JSON.parse(request.responseText);
+            showResponse(json);
+        };
+    }
 }
 
 function addSensor(){
-
     var request = new XMLHttpRequest();
     var name = document.getElementById("sensName").value;
     var serialNumber = document.getElementById("sensSerialNumber").value;
@@ -125,9 +134,86 @@ function addSensor(){
     request.send(JSON.stringify(data));
 
     request.onload = function() {
-        console.log(request.responseText);
-        
-        clearSensorTable();
-        loadSensorTable();
+        var json = JSON.parse(request.responseText);
+        showResponse(json);
     };
+}
+
+function showResponse(json){
+    var lbl = document.getElementById('lbl-status');
+
+    if(Object.keys(json).includes("result")){
+        lbl.innerHTML = json["result"];
+        lbl.style.color = "green";
+    }   
+    else{
+        lbl.innerHTML = json["error"];
+        lbl.style.color = "red";
+    }
+
+    clearSensorTable();
+    loadSensorTable();
+}
+
+function getTableData(id){
+    var request = new XMLHttpRequest();
+    //open a new connection
+    request.open("POST",  "https://niekvanleeuwen.nl/senstable/api/sensors/get/", true);
+    request.setRequestHeader('Content-type', 'application/json');
+
+    var data = {
+        "id": id,
+    };
+    request.send(JSON.stringify(data));
+
+    request.onload = function() {
+        //parse the object
+        var data = JSON.parse(this.responseText);
+        console.log(data);        
+        openEditForm();
+        
+        var hd = document.getElementById("edit-form-header");
+        hd.innerHTML = `${hd.innerHTML}${data[0]['id']}`;
+        console.log(hd.innerHTML);
+
+        Object.keys(data[0]).forEach(function(key){
+            if(document.getElementById(`sens-${key}-edit`) !== null)
+                document.getElementById(`sens-${key}-edit`).value = data[0][key];
+        }); 
+    }
+}
+
+function saveSensor(){
+    var request = new XMLHttpRequest();
+    request.open("PUT",  "https://niekvanleeuwen.nl/senstable/api/sensors/update/", true);
+    request.setRequestHeader('Content-type', 'application/json');
+
+    var data = {
+        "id": document.getElementById('edit-form-header').innerHTML.replace("Sensor bewerken: #", ""),
+        "name": document.getElementById(`sens-name-edit`).value,
+        "short_description": document.getElementById(`sens-short_description-edit`).value,
+        "serial_number": document.getElementById(`sens-serial_number-edit`).value,
+        "wiki": document.getElementById(`sens-wiki-edit`).value,
+        "code": document.getElementById(`sens-code-edit`).value
+    };
+    console.log(data);
+    request.send(JSON.stringify(data));
+
+    request.onload = function() {
+        var json = JSON.parse(request.responseText);
+        showResponse(json);
+        closeEditForm();
+
+        var hd = document.getElementById("edit-form-header");
+        hd.innerHTML = `Sensor bewerken: #`;
+    }
+
+}
+
+function openEditForm() {
+    document.getElementById("edit-popup-form").style.display = "block";
+}
+
+function closeEditForm() {
+    document.getElementById("edit-popup-form").style.display = "none";
 }

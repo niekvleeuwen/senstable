@@ -12,13 +12,13 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $json = file_get_contents('php://input');
 $json = json_decode($json);
 
-$name  = strtolower($json->name);
+$id  = $json->id;
 $limit = $json->limit;
 
 $sql = "SELECT * FROM sensors";
 
-if ($name != null) {
-    $sql .= " WHERE LOWER(name) LIKE :name";
+if ($id != null) {
+    $sql .= " WHERE id LIKE :id";
 }
 
 if ($limit != null) {
@@ -27,9 +27,8 @@ if ($limit != null) {
 
 $stmt = $pdo->prepare($sql);
 
-if ($name != null) {
-    $arg  = '%' . $name . '%';
-    $stmt->bindValue(':name', $arg, PDO::PARAM_STR);
+if ($id != null) {
+    $stmt->bindValue(':id', $id, PDO::PARAM_STR);
 }
 
 if ($limit != null) {
