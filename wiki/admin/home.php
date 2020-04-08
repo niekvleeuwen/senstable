@@ -17,9 +17,9 @@
 		<title>Dashboard | Senstable</title>
 		<style><?php include 'css/dashboard.css'; ?></style>
 		<style><?php include 'css/bootstrap.min.css'; ?></style>
-		<style><?php include 'fontawesome/css/all.min.css'; ?></style>
+		<!-- <style><?php //include 'fontawesome/css/all.min.css'; ?></style> -->
   	</head>
-    <body>
+    <body onload="loadSensorTable()">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="home.php">Senstable</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Zoeken" aria-label="Search">
@@ -66,10 +66,10 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <h2>Sensors</h2>
           <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm" id="sensorTable">
 				<thead>
 					<tr>
-						<th scope="col">#</th>
+						<th scope="col" class="sens-id">#</th>
 						<th scope="col">Naam</th>
 						<th scope="col">Beschrijving</th>
 						<th scope="col">Serienummer</th>
