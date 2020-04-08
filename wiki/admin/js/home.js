@@ -32,15 +32,13 @@ function loadSensorTable(){
                 dateAdded.textContent = sensor.date_added;
 
                 const deleteSensor = document.createElement("td");
-                var btn = document.createElement('input');
-                btn.type = "button";
-                btn.className = "btn btn-delete mb-1 h-25 btn-delete";
-                btn.value = "Delete";
-                btn.name = `btn-delete-${sensor.id}`;
-                btn.onclick = function () {
-                    removeSensor(btn.name.replace("btn-delete-", ""));
+                var i_element = document.createElement('I');
+                i_element.className = "fas fa-trash-alt delete-sensor";
+                i_element.name = `delete-${sensor.id}`;
+                i_element.onclick = function () {
+                    removeSensor(i_element.name.replace("delete-", ""));
                 };
-                deleteSensor.appendChild(btn);
+                deleteSensor.appendChild(i_element);
 
                 entry.appendChild(id)
                 entry.appendChild(name);

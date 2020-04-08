@@ -17,7 +17,7 @@
 		<title>Dashboard | Senstable</title>
 		<style><?php include 'css/dashboard.css'; ?></style>
 		<style><?php include 'css/bootstrap.min.css'; ?></style>
-		<!-- <style><?php //include 'fontawesome/css/all.min.css'; ?></style> -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   	</head>
     <body onload="loadSensorTable()">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -79,13 +79,7 @@
 				</thead>
 				<tbody id="table"></tbody>
 			</table>
-			<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="add-sensor">
-				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-					<rect opacity="0" x="0" y="0" width="28" height="28"></rect>
-					<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"></circle>
-					<path d="M11,11 L11,7 C11,6.44771525 11.4477153,6 12,6 C12.5522847,6 13,6.44771525 13,7 L13,11 L17,11 C17.5522847,11 18,11.4477153 18,12 C18,12.5522847 17.5522847,13 17,13 L13,13 L13,17 C13,17.5522847 12.5522847,18 12,18 C11.4477153,18 11,17.5522847 11,17 L11,13 L7,13 C6.44771525,13 6,12.5522847 6,12 C6,11.4477153 6.44771525,11 7,11 L11,11 Z" fill="#000000"></path>
-				</g>
-			</svg>
+			<i class="fas fa-plus-circle add-sensor" id="add-sensor"></i>
 		  </div>
 			<div class="form-popup" id="popup-form">
 				<div class="row col-sm-6 d-flex ml-2">
@@ -130,8 +124,6 @@
 	<script><?php include 'js/home.js'; ?></script>						
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js" type="text/javascript"></script>
-    <!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
       feather.replace()
     </script>

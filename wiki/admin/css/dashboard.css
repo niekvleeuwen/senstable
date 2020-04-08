@@ -112,12 +112,7 @@ br{
   z-index: 9;
 }
 
-.btn-delete{
-  background-color: rgb(209, 52, 52);
-}
-
-.btn-delete:hover{
-  background-color: rgb(207, 80, 80);
+.delete-sensor:hover{
   cursor: pointer;
 }
 
@@ -125,6 +120,6 @@ br{
   background-color: #666;
 }
 
-#add-sensor {
+.add-sensor {
   cursor: pointer;
 }
