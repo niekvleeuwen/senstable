@@ -23,8 +23,8 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->bindValue(':short_description', $short_description, PDO::PARAM_STR);
 $stmt->bindValue(':serial_number', $serial_number, PDO::PARAM_STR);
-$stmt->bindValue(':wiki', $name, PDO::PARAM_STR);
-$stmt->bindValue(':code', $name, PDO::PARAM_STR);
+$stmt->bindValue(':wiki', $wiki, PDO::PARAM_STR);
+$stmt->bindValue(':code', $cdoe, PDO::PARAM_STR);
 
 $result = $stmt->execute();
 
