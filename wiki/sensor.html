@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Senstable | Stadslab Rotterdam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" een project door TI studenten">
+    <link href="assets/css/loaders/loader-typing.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+</head>
+
+  <body>
+    <div class="loader">
+        <div class="loading-animation"></div>
+    </div>
+
+    <div class="navbar-container ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <div class="col flex-fill px-0 d-flex justify-content-between">
+                    <a class="navbar-brand mr-0 fade-page" href="index.html">
+                  Senstable
+              </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
+        <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
+      </button>
+                </div>
+                <div class="collapse navbar-collapse col px-0 px-lg-2 flex-fill">
+                    <div class="py-2 py-lg-0">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a data-smooth-scroll href="#sensors" class="nav-link">Onze sensoren</a>
+                            </li>
+                            <li class="nav-item"><a data-smooth-scroll href="#team" class="nav-link">Ons team</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end col flex-fill px-0"><a data-smooth-scroll href="#contact" class="btn btn-primary contact-button ml-lg-3">Neem nu contact op</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <section class="pb-0 pb-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-8">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="#">Sensors</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="#">Ultrasoon</a>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <h1 id="sens-title"></h1>
+            <div class="d-flex align-items-center">
+              <div>
+                <div id="sens-short-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="p-0" data-reading-position>
+      <div class="container">
+        <div class="row justify-content-center position-relative">
+          <div class="col-lg-10 col-xl-8">
+            <img id="sens-image" src="assets/img/background.jpg" alt="Image" class="rounded">
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-xl-7 col-lg-8 col-md-10">
+            <article class="article">
+                <p class="lead" id="sens-description"></p>
+            </article>
+          </div>
+          <pre>
+            <code class="language-arduino" id="sens-code"></code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="has-divider">
+      <div class="container pt-3">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 col-lg-8 col-md-10">
+            <hr>
+            <div class="d-flex align-items-center">
+              <span class="text-small mr-1">Share this article:</span>
+              <div class="d-flex mx-2">
+                <a href="#" class="btn btn-round btn-primary mx-1">
+                  <img class="icon icon-sm" src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
+                </a>
+                <a href="#" class="btn btn-round btn-primary mx-1">
+                  <img class="icon icon-sm" src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
+                </a>
+                <a href="#" class="btn btn-round btn-primary mx-1">
+                  <img class="icon icon-sm" src="assets/img/icons/social/linkedin.svg" alt="linkedin social icon" data-inject-svg />
+                </a>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="divider">
+        <img class="bg-primary-alt" src="assets/img/dividers/divider-1.svg" alt="divider graphic" data-inject-svg />
+      </div>
+    </section>
+    <section class="bg-primary-alt">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col">
+            <h3 class="h2">Bekijk ook deze sensoren</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="card card-body justify-content-between bg-primary text-light">
+              <div class="d-flex justify-content-between mb-3">
+                <div class="text-small d-flex">
+                  <div class="mr-2">
+                    Links
+                  </div>
+                  <span class="opacity-70">19th December</span>
+                </div>
+                <span class="badge bg-primary-alt text-primary">
+                  <img class="icon icon-sm bg-primary" src="assets/img/icons/interface/heart.svg" alt="heart interface icon" data-inject-svg />27
+                </span>
+              </div>
+              <div>
+                <h2>A time-tracking app that isn’t a pain.</h2>
+                <span class="text-small opacity-70">http://www.website.io/link</span>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">Business</a>
+                    </div>
+                    <span class="text-muted">29th November</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" src="assets/img/icons/interface/heart.svg" alt="heart interface icon" data-inject-svg />12
+                  </span>
+                </div>
+                <a href="#">
+                  <h4>How to build collateral</h4>
+                </a>
+                <p class="flex-grow-1">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                </p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/female-3.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">Abby Sims</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <a href="#">
+                <img src="assets/img/article-2.jpg" alt="Image" class="card-img-top">
+              </a>
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="text-small d-flex">
+                    <div class="mr-2">
+                      <a href="#">Design</a>
+                    </div>
+                    <span class="text-muted">27th November</span>
+                  </div>
+                  <span class="badge bg-primary-alt text-primary">
+                    <img class="icon icon-sm bg-primary" src="assets/img/icons/interface/heart.svg" alt="heart interface icon" data-inject-svg />23
+                  </span>
+                </div>
+                <a href="#">
+                  <h4>Forging your path</h4>
+                </a>
+                <p class="flex-grow-1">
+                  Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                </p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="assets/img/avatars/male-4.jpg" alt="Image" class="avatar avatar-sm">
+                  <div class="ml-1">
+                    <span class="text-small text-muted">By</span>
+                    <span class="text-small">Cedric</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="pb-4 bg-primary-3 text-light" id="footer">
+        <div class="container">
+            <div class="row justify-content-center mb-2">
+                <div class="col-12 col-lg">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex">
+                            <img class="icon" src="assets/img/icons/theme/map/marker-1.svg" alt="marker-1 icon" data-inject-svg />
+                            <div class="ml-3">
+                                <span>Hogeschool Rotterdam,Wijnhaven 101
+                    <br />3011 WN Rotterdam </span>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <img class="icon" src="assets/img/icons/theme/communication/call-1.svg" alt="call-1 icon" data-inject-svg />
+                            <div class="ml-3">
+                                <span>010 - 794 56 59</span>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <img class="icon" src="assets/img/icons/theme/communication/mail.svg" alt="mail icon" data-inject-svg />
+                            <div class="ml-3">
+                                <a href="mailto:info@stadslabrotterdam.nl">info@stadslabrotterdam.nl</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="btn back-to-top btn-primary btn-round" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
+      <img class="icon" src="assets/img/icons/theme/navigation/arrow-up.svg" alt="arrow-up icon" data-inject-svg />
+    </a>
+    <!-- Required vendor scripts (Do not remove) -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
+    <!-- Custom JS -->
+    <script type="text/javascript" src="assets/js/sensor.js"></script>
+
+    <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
+
+    <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
+    <script type="text/javascript" src="assets/js/aos.js"></script>
+    <!-- Clipboard (copies content from browser into OS clipboard) -->
+    <script type="text/javascript" src="assets/js/clipboard.js"></script>
+    <!-- Fancybox (handles image and video lightbox and galleries) -->
+    <script type="text/javascript" src="assets/js/jquery.fancybox.min.js"></script>
+    <!-- Flatpickr (calendar/date/time picker UI) -->
+    <script type="text/javascript" src="assets/js/flatpickr.min.js"></script>
+    <!-- Flickity (handles touch enabled carousels and sliders) -->
+    <script type="text/javascript" src="assets/js/flickity.pkgd.min.js"></script>
+    <!-- Ion rangeSlider (flexible and pretty range slider elements) -->
+    <script type="text/javascript" src="assets/js/ion.rangeSlider.min.js"></script>
+    <!-- Isotope (masonry layouts and filtering) -->
+    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+    <!-- jarallax (parallax effect and video backgrounds) -->
+    <script type="text/javascript" src="assets/js/jarallax.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-video.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-element.min.js"></script>
+    <!-- jQuery Countdown (displays countdown text to a specified date) -->
+    <script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+    <!-- jQuery smartWizard facilitates steppable wizard content -->
+    <script type="text/javascript" src="assets/js/jquery.smartWizard.min.js"></script>
+    <!-- Plyr (unified player for Video, Audio, Vimeo and Youtube) -->
+    <script type="text/javascript" src="assets/js/plyr.polyfilled.min.js"></script>
+    <!-- Prism (displays formatted code boxes) -->
+    <script type="text/javascript" src="assets/js/prism.js"></script>
+    <!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
+    <script type="text/javascript" src="assets/js/scrollMonitor.js"></script>
+    <!-- Smooth scroll (animation to links in-page)-->
+    <script type="text/javascript" src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
+    <script type="text/javascript" src="assets/js/svg-injector.umd.production.js"></script>
+    <!-- TwitterFetcher (displays a feed of tweets from a specified account)-->
+    <script type="text/javascript" src="assets/js/twitterFetcher_min.js"></script>
+    <!-- Typed text (animated typing effect)-->
+    <script type="text/javascript" src="assets/js/typed.min.js"></script>
+    <!-- Required theme scripts (Do not remove) -->
+    <script type="text/javascript" src="assets/js/theme.js"></script>
+    <!-- Removes page load animation when window is finished loading -->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+    </script>
+
+  </body>
+
+</html>
