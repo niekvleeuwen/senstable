@@ -12,7 +12,7 @@
     <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
 </head>
 
-  <body>
+<body>
     <div class="loader">
         <div class="loading-animation"></div>
     </div>
@@ -45,175 +45,75 @@
         </nav>
     </div>
     <section class="pb-0 pb-5">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 col-xl-8">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="#">Sensors</a>
-                  </li>
-                  <li class="breadcrumb-item">
-                    <a href="#">Ultrasoon</a>
-                  </li>
-                </ol>
-              </nav>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Sensoren</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a id="sens-title-2">Ultrasoon</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <h1 id="sens-title"></h1>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div id="sens-short-description"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 id="sens-title"></h1>
-            <div class="d-flex align-items-center">
-              <div>
-                <div id="sens-short-description"></div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
     <section class="p-0" data-reading-position>
-      <div class="container">
-        <div class="row justify-content-center position-relative">
-          <div class="col-lg-10 col-xl-8">
-            <img id="sens-image" src="assets/img/background.jpg" alt="Image" class="rounded">
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-xl-7 col-lg-8 col-md-10">
-            <article class="article">
-                <p class="lead" id="sens-description"></p>
-            </article>
-          </div>
-          <pre>
+        <div class="container">
+            <div class="row justify-content-center position-relative">
+                <div class="col-lg-10 col-xl-8">
+                    <img id="sens-image" src="assets/img/background.jpg" alt="Image" class="rounded">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <article class="article">
+                        <p class="lead" id="sens-description"></p>
+                    </article>
+                </div>
+                <pre>
             <code class="language-arduino" id="sens-code"></code>
           </pre>
-        </div>
-      </div>
-    </section>
-    <section class="has-divider">
-      <div class="container pt-3">
-        <div class="row justify-content-center">
-          <div class="col-xl-7 col-lg-8 col-md-10">
-            <hr>
-            <div class="d-flex align-items-center">
-              <span class="text-small mr-1">Share this article:</span>
-              <div class="d-flex mx-2">
-                <a href="#" class="btn btn-round btn-primary mx-1">
-                  <img class="icon icon-sm" src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
-                </a>
-                <a href="#" class="btn btn-round btn-primary mx-1">
-                  <img class="icon icon-sm" src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
-                </a>
-                <a href="#" class="btn btn-round btn-primary mx-1">
-                  <img class="icon icon-sm" src="assets/img/icons/social/linkedin.svg" alt="linkedin social icon" data-inject-svg />
-                </a>
-              </div>
             </div>
-            <hr>
-          </div>
         </div>
-      </div>
-      <div class="divider">
-        <img class="bg-primary-alt" src="assets/img/dividers/divider-1.svg" alt="divider graphic" data-inject-svg />
-      </div>
     </section>
-    <section class="bg-primary-alt">
-      <div class="container">
-        <div class="row mb-4">
-          <div class="col">
-            <h3 class="h2">Bekijk ook deze sensoren</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <a href="#" class="card card-body justify-content-between bg-primary text-light">
-              <div class="d-flex justify-content-between mb-3">
-                <div class="text-small d-flex">
-                  <div class="mr-2">
-                    Links
-                  </div>
-                  <span class="opacity-70">19th December</span>
-                </div>
-                <span class="badge bg-primary-alt text-primary">
-                  <img class="icon icon-sm bg-primary" src="assets/img/icons/interface/heart.svg" alt="heart interface icon" data-inject-svg />27
-                </span>
-              </div>
-              <div>
-                <h2>A time-tracking app that isn’t a pain.</h2>
-                <span class="text-small opacity-70">http://www.website.io/link</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <a href="#">
-                <img src="assets/img/article-1.jpg" alt="Image" class="card-img-top">
-              </a>
-              <div class="card-body d-flex flex-column">
-                <div class="d-flex justify-content-between mb-3">
-                  <div class="text-small d-flex">
-                    <div class="mr-2">
-                      <a href="#">Business</a>
+    <section>
+        <div class="container pt-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <hr>
+                    <div class="d-flex align-items-center">
+                        <span class="text-small mr-1">Deel deze pagina:</span>
+                        <div class="d-flex mx-2">
+                            <a href="#" class="btn btn-round btn-primary mx-1">
+                                <img class="icon icon-sm" src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
+                            </a>
+                            <a href="#" class="btn btn-round btn-primary mx-1">
+                                <img class="icon icon-sm" src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
+                            </a>
+                            <a href="#" class="btn btn-round btn-primary mx-1">
+                                <img class="icon icon-sm" src="assets/img/icons/social/linkedin.svg" alt="linkedin social icon" data-inject-svg />
+                            </a>
+                        </div>
                     </div>
-                    <span class="text-muted">29th November</span>
-                  </div>
-                  <span class="badge bg-primary-alt text-primary">
-                    <img class="icon icon-sm bg-primary" src="assets/img/icons/interface/heart.svg" alt="heart interface icon" data-inject-svg />12
-                  </span>
+                    <hr>
                 </div>
-                <a href="#">
-                  <h4>How to build collateral</h4>
-                </a>
-                <p class="flex-grow-1">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                </p>
-                <div class="d-flex align-items-center mt-3">
-                  <img src="assets/img/avatars/female-3.jpg" alt="Image" class="avatar avatar-sm">
-                  <div class="ml-1">
-                    <span class="text-small text-muted">By</span>
-                    <span class="text-small">Abby Sims</span>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <a href="#">
-                <img src="assets/img/article-2.jpg" alt="Image" class="card-img-top">
-              </a>
-              <div class="card-body d-flex flex-column">
-                <div class="d-flex justify-content-between mb-3">
-                  <div class="text-small d-flex">
-                    <div class="mr-2">
-                      <a href="#">Design</a>
-                    </div>
-                    <span class="text-muted">27th November</span>
-                  </div>
-                  <span class="badge bg-primary-alt text-primary">
-                    <img class="icon icon-sm bg-primary" src="assets/img/icons/interface/heart.svg" alt="heart interface icon" data-inject-svg />23
-                  </span>
-                </div>
-                <a href="#">
-                  <h4>Forging your path</h4>
-                </a>
-                <p class="flex-grow-1">
-                  Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                </p>
-                <div class="d-flex align-items-center mt-3">
-                  <img src="assets/img/avatars/male-4.jpg" alt="Image" class="avatar avatar-sm">
-                  <div class="ml-1">
-                    <span class="text-small text-muted">By</span>
-                    <span class="text-small">Cedric</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
-    
-    
+
     <footer class="pb-4 bg-primary-3 text-light" id="footer">
         <div class="container">
             <div class="row justify-content-center mb-2">
@@ -246,7 +146,7 @@
     </footer>
 
     <a href="#" class="btn back-to-top btn-primary btn-round" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
-      <img class="icon" src="assets/img/icons/theme/navigation/arrow-up.svg" alt="arrow-up icon" data-inject-svg />
+        <img class="icon" src="assets/img/icons/theme/navigation/arrow-up.svg" alt="arrow-up icon" data-inject-svg />
     </a>
     <!-- Required vendor scripts (Do not remove) -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
@@ -298,9 +198,11 @@
     <script type="text/javascript" src="assets/js/theme.js"></script>
     <!-- Removes page load animation when window is finished loading -->
     <script type="text/javascript">
-      window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+        window.addEventListener("load", function() {
+            document.querySelector('body').classList.add('loaded');
+        });
     </script>
 
-  </body>
+</body>
 
 </html>
