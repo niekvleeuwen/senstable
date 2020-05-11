@@ -12,13 +12,13 @@
     <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
 </head>
 
-<body data-smooth-scroll-offset="73">
+<body>
     <div class="loader">
         <div class="loading-animation"></div>
     </div>
 
     <div class="navbar-container ">
-        <nav class="navbar navbar-expand-lg navbar-dark" data-overlay data-sticky="top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container">
                 <div class="col flex-fill px-0 d-flex justify-content-between">
                     <a class="navbar-brand mr-0 fade-page" href="index.html">
@@ -44,43 +44,75 @@
             </div>
         </nav>
     </div>
-
-    <div data-overlay class="bg-primary-3 text-light position-relative">
-        <img src="assets/img/background.jpg" alt="Image" class="bg-image opacity-40">
-        <section class="min-vh-70 o-hidden d-flex flex-column justify-content-center">
-            <div class="container">
-                <div class="row justify-content-center text-center align-items-center">
-                    <div class="col-xl-8 col-lg-9 col-md-10 layer-3" data-aos="fade-up" data-aos-delay="500">
-                        <h1 class="display-3">
-                            Welkom bij Senstable
-                        </h1>
-                        <div class="mb-4">
-                            <p class="lead px-xl-5">
-                                Een samenwerking tussen het Stadslab Rotterdam en studenten van de Hogeschool Rottterdam
-                            </p>
-                        </div>
-                        <a href="#demos" class="btn btn-lg btn-white mx-1" data-smooth-scroll>Bekijk onze sensoren</a>
-                        <a href="#" class="btn btn-lg btn-primary-3 mx-1">Bekijk de Senstable</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="divider flip-x">
-            <img src="assets/img/dividers/divider-2.svg" alt="graphical divider" data-inject-svg />
-        </div>
-    </div>
-
-    <section class="text-center" id="demos">
+    <section class="pb-0 pb-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-9">
-                    <h2 class="h1">Hieronder een lijst met alle sensoren</h2>
+                <div class="col-lg-10 col-xl-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Sensoren</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a id="sens-title-2">Ultrasoon</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <h1 id="sens-title"></h1>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div id="sens-short-description"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <div id="sens"></div>
+    <section class="p-0" data-reading-position>
+        <div class="container">
+            <div class="row justify-content-center position-relative">
+                <div class="col-lg-10 col-xl-8">
+                    <img id="sens-image" src="assets/img/background.jpg" alt="Image" class="rounded">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <article class="article">
+                        <p class="lead" id="sens-description"></p>
+                    </article>
+                </div>
+                <pre>
+            <code class="language-arduino" id="sens-code"></code>
+          </pre>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container pt-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <hr>
+                    <div class="d-flex align-items-center">
+                        <span class="text-small mr-1">Deel deze pagina:</span>
+                        <div class="d-flex mx-2">
+                            <a href="#" class="btn btn-round btn-primary mx-1">
+                                <img class="icon icon-sm" src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
+                            </a>
+                            <a href="#" class="btn btn-round btn-primary mx-1">
+                                <img class="icon icon-sm" src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
+                            </a>
+                            <a href="#" class="btn btn-round btn-primary mx-1">
+                                <img class="icon icon-sm" src="assets/img/icons/social/linkedin.svg" alt="linkedin social icon" data-inject-svg />
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="pb-4 bg-primary-3 text-light" id="footer">
         <div class="container">
@@ -112,6 +144,7 @@
             </div>
         </div>
     </footer>
+
     <a href="#" class="btn back-to-top btn-primary btn-round" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
         <img class="icon" src="assets/img/icons/theme/navigation/arrow-up.svg" alt="arrow-up icon" data-inject-svg />
     </a>
@@ -121,7 +154,7 @@
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 
     <!-- Custom JS -->
-    <script type="text/javascript" src="assets/js/index.js"></script>
+    <script type="text/javascript" src="assets/js/sensor.js"></script>
 
     <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
 
