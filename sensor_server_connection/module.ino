@@ -5,9 +5,9 @@
 boolean handshakeFailed = 0;
 String data = "";
 char path[] = "/";   //identifier of this device
-const char* ssid     = "AP001#";
-const char* password = "#molen@wieken!52";
-char* host = "172.19.3.116";  //replace this ip address with the ip address of your Node.Js server
+const char* ssid     = "";
+const char* password = "";
+char* host = "";  //replace this ip address with the ip address of your Node.Js server
 const int espport = 3000;
 
 WebSocketClient webSocketClient;
