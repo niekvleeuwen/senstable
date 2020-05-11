@@ -84,8 +84,14 @@
                     </article>
                 </div>
                 <pre>
-            <code class="language-arduino" id="sens-code"></code>
-          </pre>
+                    <code class="language-arduino" id="sens-code"></code>
+                </pre>
+                
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10"></div>
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
         </div>
     </section>
@@ -155,6 +161,45 @@
 
     <!-- Custom JS -->
     <script type="text/javascript" src="assets/js/sensor.js"></script>
+
+    <!-- ChartJS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    
+    <script>
+        $.getJSON("sensData.json", function(data) {
+            var labels = data.amounts.map(function(e) {
+                return e[0];
+            });
+            var data = data.amounts.map(function(e) {
+                return e[1];
+            });
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label:"Sensor waarde",
+                        backgroundColor: 'rgb(129, 198, 2228)',
+                        borderColor: "#48BF84",
+                        fill: false,
+                        data: data
+                    }]
+                },
+                options: {
+                    responsive: 'true',
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                }
+            });
+        });
+    </script>
 
     <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
 
