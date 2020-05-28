@@ -28,15 +28,16 @@ request.onreadystatechange = function() {
     if (request.readyState === 4 && request.status === 200) {
         //parse the object
         var data = JSON.parse(request.response);
-        console.log(data);
         //handle errors
         if (request.status >= 200 && request.status < 400) {
             data.forEach(sensor => {
                 title.textContent = title2.textContent = sensor.name;
                 shortDescription.textContent = sensor.short_description;
                 description.textContent = sensor.wiki;
-                code.textContent = sensor.code;
+                code.innerHTML = "\n" + sensor.code;
                 img.setAttribute("src", "admin/" + sensor.diagram);
+                // Rerun Prism syntax highlighting on the current page
+                Prism.highlightAll();
             });
         }
     }
