@@ -18,16 +18,14 @@
     </div>
 
     <div class="navbar-container ">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-dark" data-overlay data-sticky="top">
             <div class="container">
                 <div class="col flex-fill px-0 d-flex justify-content-between">
-                    <a class="navbar-brand mr-0 fade-page" href="index.html">
-                  Senstable
-              </a>
+                    <a class="navbar-brand mr-0 fade-page" href="index.html">Senstable</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
-        <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
-      </button>
+                  <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
+                  <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
+              </button>
                 </div>
                 <div class="collapse navbar-collapse col px-0 px-lg-2 flex-fill">
                     <div class="py-2 py-lg-0">
@@ -39,84 +37,72 @@
                         </ul>
                     </div>
                 </div>
-                <div class="collapse navbar-collapse justify-content-end col flex-fill px-0"><a href="contact.html" class="btn btn-primary contact-button ml-lg-3">Neem nu contact op</a>
+                <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">
+                    <a href="contact.html" class="btn btn-primary contact-button ml-lg-3">Neem nu contact op</a>
                 </div>
             </div>
         </nav>
     </div>
-    <section class="pb-0 pb-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="index.html">Sensoren</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a id="sens-title-2">Ultrasoon</a>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <h1 id="sens-title"></h1>
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <div id="sens-short-description"></div>
-                        </div>
-                    </div>
+
+    <section class="bg-dark text-light header-inner p-0 jarallax position-relative" data-jarallax data-speed="0.2" data-overlay>
+        <img src="assets/img/contact-bg.jpg" alt="Image" class="jarallax-img opacity-40">
+        <div class="container py-0">
+            <div class="row my-3">
+                <div class="col">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row my-4 my-md-6" data-aos="fade-up">
+                <div class="col-lg-9 col-xl-8">
+                    <h1 class="display-4">Get In Touch</h1>
+                    <p class="lead mb-0">Neem nu contact met ons op of kom gezellig langs op de Wijnhaven!</p>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="p-0" data-reading-position>
-        <div class="container">
-            <div class="row justify-content-center position-relative">
-                <div class="col-lg-10 col-xl-8">
-                    <img id="sens-image" src="assets/img/background.jpg" alt="Image" class="rounded">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10">
-                    <article class="article">
-                        <p class="lead" id="sens-description"></p>
-                    </article>
-                </div>
-                <pre>
-                    <code class="language-arduino" id="sens-code"></code>
-                </pre>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10"></div>
-                <canvas id="myChart"></canvas>
-            </div>
-            <div class="row justify-content-center">
-                <a id="pauseButton" class="m-1 btn btn-primary" onclick="pauseGraph()">Pause</a>
-            </div>
-        </div>
+        <div class="divider">
+            <img src="assets/img/dividers/divider-2.svg" alt="graphical divider" data-inject-svg />
         </div>
     </section>
     <section>
-        <div class="container pt-3">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10">
-                    <hr>
-                    <div class="d-flex align-items-center">
-                        <span class="text-small mr-1">Deel deze pagina:</span>
-                        <div class="d-flex mx-2">
-                            <a href="#" class="btn btn-round btn-primary mx-1">
-                                <img class="icon icon-sm" src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
-                            </a>
-                            <a href="#" class="btn btn-round btn-primary mx-1">
-                                <img class="icon icon-sm" src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
-                            </a>
-                            <a href="#" class="btn btn-round btn-primary mx-1">
-                                <img class="icon icon-sm" src="assets/img/icons/social/linkedin.svg" alt="linkedin social icon" data-inject-svg />
-                            </a>
-                        </div>
-                    </div>
-                    <hr>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 mb-12 mb-sm-0">
+                    <a href="assets/img/logo.svg" data-fancybox="">
+                        <img src="assets/img/logo.svg" alt="Image" class="rounded">
+                    </a>
+                    <hr />
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <h3 class="h2">Locatie</h3>
+                    <span class="lead">Wijnhaven 101<br />3011 WN Rotterdam <br />Rotterdam</span>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <h3 class="h2">Email</h3>
+                    <a href="mailto:info@stadslabrotterdam.nl" class="lead">info@stadslabrotterdam.nl</a>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <h3 class="h2">Bellen</h3>
+                    <span class="lead">
+                        010 - 794 56 59
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row center">
+                <div class="col col-lg-8 col-xl-7">
                 </div>
             </div>
         </div>
@@ -161,15 +147,6 @@
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 
-    <!-- ChartJS -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-
-    <!-- Prism (displays formatted code boxes) -->
-    <script type="text/javascript" src="assets/js/prism.js"></script>
-
-    <!-- Custom JS -->
-    <script type="text/javascript" src="assets/js/custom/sensor.js"></script>
-
     <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
     <script type="text/javascript" src="assets/js/aos.js"></script>
     <!-- Smooth scroll (animation to links in-page)-->
@@ -178,6 +155,10 @@
     <script type="text/javascript" src="assets/js/jquery.smartWizard.min.js"></script>
     <!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
     <script type="text/javascript" src="assets/js/svg-injector.umd.production.js"></script>
+    <!-- jarallax (parallax effect and video backgrounds) -->
+    <script type="text/javascript" src="assets/js/jarallax.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-video.min.js"></script>
+    <script type="text/javascript" src="assets/js/jarallax-element.min.js"></script>
     <!-- Required theme scripts (Do not remove) -->
     <script type="text/javascript" src="assets/js/theme.js"></script>
     <!-- Removes page load animation when window is finished loading -->
@@ -186,6 +167,7 @@
             document.querySelector('body').classList.add('loaded');
         });
     </script>
+
 </body>
 
 </html>

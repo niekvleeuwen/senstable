@@ -18,16 +18,14 @@
     </div>
 
     <div class="navbar-container ">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-dark" data-overlay data-sticky="top">
             <div class="container">
                 <div class="col flex-fill px-0 d-flex justify-content-between">
-                    <a class="navbar-brand mr-0 fade-page" href="index.html">
-                  Senstable
-              </a>
+                    <a class="navbar-brand mr-0 fade-page" href="index.html">Senstable</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
-        <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
-      </button>
+                      <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
+                      <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
+                  </button>
                 </div>
                 <div class="collapse navbar-collapse col px-0 px-lg-2 flex-fill">
                     <div class="py-2 py-lg-0">
@@ -44,84 +42,95 @@
             </div>
         </nav>
     </div>
-    <section class="pb-0 pb-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="index.html">Sensoren</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a id="sens-title-2">Ultrasoon</a>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <h1 id="sens-title"></h1>
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <div id="sens-short-description"></div>
-                        </div>
-                    </div>
+
+    <section class="bg-dark text-light header-inner p-0 jarallax o-hidden" data-overlay data-jarallax data-speed="0.2">
+        <img src="assets/img/background.jpg" alt="Image" class="jarallax-img opacity-30">
+        <div class="container py-0 layer-2">
+            <div class="row my-3">
+                <div class="col">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Over de Senstable</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row my-4 my-md-6" data-aos="fade-up">
+                <div class="col-lg-9 col-xl-8">
+                    <h1 class="display-4">Over de Senstable</h1>
+                    <p class="lead mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="p-0" data-reading-position>
-        <div class="container">
-            <div class="row justify-content-center position-relative">
-                <div class="col-lg-10 col-xl-8">
-                    <img id="sens-image" src="assets/img/background.jpg" alt="Image" class="rounded">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10">
-                    <article class="article">
-                        <p class="lead" id="sens-description"></p>
-                    </article>
-                </div>
-                <pre>
-                    <code class="language-arduino" id="sens-code"></code>
-                </pre>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10"></div>
-                <canvas id="myChart"></canvas>
-            </div>
-            <div class="row justify-content-center">
-                <a id="pauseButton" class="m-1 btn btn-primary" onclick="pauseGraph()">Pause</a>
+        <div class="decoration-wrapper">
+            <div class="decoration bottom right d-none d-md-block" data-jarallax-element="100 100">
+                <img class="bg-primary-2" src="assets/img/decorations/deco-blob-1.svg" alt="deco-blob-1 decoration" data-inject-svg />
             </div>
         </div>
+        <div class="divider flip-x">
+            <img src="assets/img/dividers/divider-1.svg" alt="graphical divider" data-inject-svg />
         </div>
     </section>
     <section>
-        <div class="container pt-3">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10">
-                    <hr>
-                    <div class="d-flex align-items-center">
-                        <span class="text-small mr-1">Deel deze pagina:</span>
-                        <div class="d-flex mx-2">
-                            <a href="#" class="btn btn-round btn-primary mx-1">
-                                <img class="icon icon-sm" src="assets/img/icons/social/twitter.svg" alt="twitter social icon" data-inject-svg />
-                            </a>
-                            <a href="#" class="btn btn-round btn-primary mx-1">
-                                <img class="icon icon-sm" src="assets/img/icons/social/facebook.svg" alt="facebook social icon" data-inject-svg />
-                            </a>
-                            <a href="#" class="btn btn-round btn-primary mx-1">
-                                <img class="icon icon-sm" src="assets/img/icons/social/linkedin.svg" alt="linkedin social icon" data-inject-svg />
-                            </a>
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-center justify-content-around">
+                <div class="col-md-5 col-xl-6 mb-4 mb-md-0">
+                    <img src="assets/img/box.jpg" alt="Image" class="rounded shadow-3d">
+                </div>
+                <div class="col-md-7 col-xl-6">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-10">
+                            <span class="badge badge-primary">Onze Missie</span>
+                            <div class="my-3">
+                                <span class="h1">Change the game through design.</span>
+                            </div>
+                            <p class="lead">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
+                            <p class="lead mb-0">Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
                         </div>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>
     </section>
-
+    <section class="bg-primary-alt o-hidden">
+        <div class="container">
+            <div class="row mb-4 text-center">
+                <div class="col">
+                    <h2>Project overzicht</h2>
+                </div>
+            </div>
+            <div class="row o-hidden o-lg-visible">
+                <div class="col d-flex flex-column align-items-center">
+                    <ol class="process-vertical">
+                        <li data-aos="fade-left">
+                            <div class="process-circle bg-primary"></div>
+                            <div>
+                                <span class="text-small text-muted">Maart 2020</span>
+                                <h5 class="mb-0">Opzet project</h5>
+                            </div>
+                        </li>
+                        <li data-aos="fade-left">
+                            <div class="process-circle bg-primary"></div>
+                            <div>
+                                <span class="text-small text-muted">Juni 2020</span>
+                                <h5 class="mb-0">Eerste prototype ontwikkeld</h5>
+                            </div>
+                        </li>
+                        <li data-aos="fade-left">
+                            <div class="process-circle bg-primary"></div>
+                            <div>
+                                <span class="text-small text-muted">....</span>
+                                <h5 class="mb-0">Coming soon!</h5>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="pb-4 bg-primary-3 text-light" id="footer">
         <div class="container">
             <div class="row justify-content-center mb-2">
@@ -132,7 +141,7 @@
                             <img class="icon" src="assets/img/icons/theme/map/marker-1.svg" alt="marker-1 icon" data-inject-svg />
                             <div class="ml-3">
                                 <span>Hogeschool Rotterdam,Wijnhaven 101
-                    <br />3011 WN Rotterdam </span>
+                  <br />3011 WN Rotterdam </span>
                             </div>
                         </li>
                         <li class="mb-3 d-flex">
@@ -163,9 +172,6 @@
 
     <!-- ChartJS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-
-    <!-- Prism (displays formatted code boxes) -->
-    <script type="text/javascript" src="assets/js/prism.js"></script>
 
     <!-- Custom JS -->
     <script type="text/javascript" src="assets/js/custom/sensor.js"></script>

@@ -11,7 +11,7 @@ let request = new XMLHttpRequest();
 let chart;
 let dataArr = [];
 let labels = [];
-let sock = new WebSocket("ws://185.224.91.138:5050");  //replace this address with the one the node.js server prints out. 
+//let sock = new WebSocket("ws://185.224.91.138:5050"); //replace this address with the one the node.js server prints out. 
 let graphPaused = false;
 
 // get the paramater given in the url
@@ -30,39 +30,39 @@ const jsonData = {
 }
 
 // this function is called when the socket is connected
-sock.onopen = function(event){
-    buildChart();
-    // send the id from the sensor to the socket
-    sock.send(JSON.stringify(jsonData));
-}
+// sock.onopen = function(event) {
+//     buildChart();
+//     // send the id from the sensor to the socket
+//     sock.send(JSON.stringify(jsonData));
+// }
 
-// this function is called on every messaged received from the server
-sock.onmessage = function (event) {
-    // update the graph with the new data
-    if(graphPaused == false){
-        update(JSON.parse(event.data));
-    }
-}
+// // this function is called on every messaged received from the server
+// sock.onmessage = function(event) {
+//     // update the graph with the new data
+//     if (graphPaused == false) {
+//         update(JSON.parse(event.data));
+//     }
+// }
 
 // this function updates the graph
-function update(json){
-    if(dataArr.length > 100){
-       dataArr.shift()
-       labels.shift()
+function update(json) {
+    if (dataArr.length > 100) {
+        dataArr.shift()
+        labels.shift()
     }
     labels.push(json["sensor"]["timeStamp"]);
     dataArr.push(json["sensor"]["value"]);
     chart.update();
 }
 
-function pauseGraph(){
+function pauseGraph() {
     // check if the graph is paused
-    if(graphPaused){
+    if (graphPaused) {
         pauseButton.textContent = "Pause";
         graphPaused = false;
         // set overlay to false
         chart.options.tooltips.enabled = false;
-    }else{
+    } else {
         pauseButton.textContent = "Resume";
         graphPaused = true;
         // set overlay to true
@@ -70,7 +70,7 @@ function pauseGraph(){
     }
 }
 
-function buildChart(){
+function buildChart() {
     var ctx = document.getElementById('myChart').getContext('2d');
     chart = new Chart(ctx, {
         type: 'line',
