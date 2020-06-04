@@ -11,7 +11,7 @@ let request = new XMLHttpRequest();
 let chart;
 let dataArr = [];
 let labels = [];
-//let sock = new WebSocket("ws://185.224.91.138:5050"); //replace this address with the one the node.js server prints out. 
+let sock = new WebSocket("ws://185.224.91.138:5050"); //replace this address with the one the node.js server prints out. 
 let graphPaused = false;
 
 // get the paramater given in the url
