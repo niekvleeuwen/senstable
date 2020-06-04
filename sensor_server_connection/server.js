@@ -22,21 +22,21 @@ s.on('connection', function (ws, req) {
             message = JSON.parse(message);
             console.log(message);
 
-            if(message.hasOwnProperty("client")){
-                if(clientDict[message["client"]["id"]] === undefined)
+            if (message.hasOwnProperty("client")) {
+                if (clientDict[message["client"]["id"]] === undefined)
                     clientDict[message["client"]["id"]] = [];
-                
+
                 clientDict[message["client"]["id"]].push(ws);
             }
-            else{
+            else {
                 var now = new Date();
                 message["sensor"]["timeStamp"] = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
             }
         } catch (err) {
             console.error(err);
         }
-        if(message.hasOwnProperty("sensor")){
-            if(!(clientDict[message["sensor"]["id"]] === undefined)){
+        if (message.hasOwnProperty("sensor")) {
+            if (!(clientDict[message["sensor"]["id"]] === undefined)) {
                 clientDict[message["sensor"]["id"]].forEach(client => {
                     client.send(JSON.stringify(message));
                 });
@@ -45,7 +45,16 @@ s.on('connection', function (ws, req) {
     });
 
     ws.on('close', function () {
-        console.log("lost one client");
+        console.log("Lost one client");
+
+        if (!(clientDict === undefined)) {
+            clientDict.forEach(id => {
+                if(!(id === undefined) && id.includes(ws)){
+                    var index = id.indexOf(ws);
+                    id.splice(index, 1);
+                }
+            });
+        }
     });
     console.log("new client connected");
 });
