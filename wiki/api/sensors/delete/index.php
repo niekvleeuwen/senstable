@@ -1,12 +1,10 @@
 <?php
-include_once './../../../config/connect.php';
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+include_once '../../api.php';
 
-header('Content-type:application/json;charset=utf-8');
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+$api = new API();
+$api->setHeaders();
 
 $json = file_get_contents('php://input');
 $json = json_decode($json);
@@ -14,21 +12,24 @@ $json = json_decode($json);
 $token = $json->token;
 $id = $json->id;
 
-$sql = "DELETE FROM sensors WHERE id=:id";
-
-$pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
-
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_STR);
-$result = $stmt->execute();
-
-if ($result) {
-    $data = [
-        'result' => 'Sensor succesfully deleted!',
-    ];
+// first check token
+if ($api->authenticate($token)) {
+    $sql = "DELETE FROM sensors WHERE id=:id";
+    $param = array (
+        "id" => $id,
+    );
+    if ($api->sendQuery($sql, $param)) {
+        $data = [
+            'result' => 'Sensor succesvol verwijderd!',
+        ];
+    } else {
+        $data = [
+            'error' => 'De sensor is niet gewist :(',
+        ];
+    }
 } else {
     $data = [
-        'error' => 'Failed to delete the sensor.',
+        'error' => 'U moet opnieuw inloggen!',
     ];
 }
 

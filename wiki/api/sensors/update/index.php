@@ -1,12 +1,8 @@
 <?php
-include_once './../../../config/connect.php';
+include_once '../../api.php';
 
-header('Content-type:application/json;charset=utf-8');
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+$api = new API();
+$api->setHeaders();
 
 $json = file_get_contents('php://input');
 $json = json_decode($json);
@@ -19,28 +15,31 @@ $serial_number      = $json->serial_number;
 $wiki               = $json->wiki;
 $code               = $json->code;
 
-$sql = "UPDATE sensors SET name=:name, short_description=:short_description, serial_number=:serial_number, wiki=:wiki, code=:code WHERE id=:id";
+// first check token
+if ($api->authenticate($token)) {
+    $sql = "UPDATE sensors SET name=:name, short_description=:short_description, serial_number=:serial_number, wiki=:wiki, code=:code WHERE id=:id";
+    $param = array (
+        "id" => $id,
+        "name" => $name,
+        "short_description" => $short_description,
+        "serial_number" => $serial_number,
+        "wiki" => $wiki,
+        "code" => $code,
+    );
 
-$pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
-
-$stmt = $pdo->prepare($sql);
-
-$stmt->bindValue(':id', $id, PDO::PARAM_STR);
-$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-$stmt->bindValue(':short_description', $short_description, PDO::PARAM_STR);
-$stmt->bindValue(':serial_number', $serial_number, PDO::PARAM_STR);
-$stmt->bindValue(':wiki', $wiki, PDO::PARAM_STR);
-$stmt->bindValue(':code', $cdoe, PDO::PARAM_STR);
-
-$result = $stmt->execute();
-
-if ($result) {
-    $data = [
-        'result' => 'Sensor succesfully updated!',
-    ];
+    // check if the SQL query was succesful
+    if ($api->sendQuery($sql, $param)) {
+        $data = [
+            'result' => 'Sensor succesvol bijgewerkt!',
+        ];
+    } else {
+        $data = [
+            'error' => 'Updaten is mislukt!',
+        ];
+    }
 } else {
     $data = [
-        'error' => 'Updating failed!',
+        'error' => 'U moet opnieuw inloggen!',
     ];
 }
 

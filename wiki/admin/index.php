@@ -29,9 +29,25 @@
                 {
                     if(password_verify($password, $row["password"])) 
                     {
-                        $_SESSION["user_login"] = $row["user_id"];	
-                        include("home.php");
-                        exit();	
+                        // generate token
+                        $token = md5(uniqid(rand(), true));
+                        
+                        $sql  = "INSERT INTO tokens (username, token) VALUES (:username, :token)";
+                        $stmt = $pdo->prepare($sql);
+
+                        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+                        $stmt->bindValue(':token', $token, PDO::PARAM_STR);
+
+                        $result = $stmt->execute();
+                        
+                        if ($result) {
+                            $_SESSION["user_login"] = $row["user_id"];	
+                            $_SESSION["token"] = $token;
+                            include("home.php");
+                            exit();	
+                        }else{
+                            $errorMsg[]="Er is een fout opgetreden!";
+                        }
                     }
                     else
                     {
