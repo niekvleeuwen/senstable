@@ -30,14 +30,14 @@ const jsonData = {
 }
 
 // this function is called when the socket is connected
-sock.onopen = function (event) {
+sock.onopen = function(event) {
     buildChart();
     // send the id from the sensor to the socket
     sock.send(JSON.stringify(jsonData));
 }
 
 // // this function is called on every messaged received from the server
-sock.onmessage = function (event) {
+sock.onmessage = function(event) {
     // update the graph with the new data
     if (graphPaused == false) {
         update(JSON.parse(event.data));
@@ -55,6 +55,14 @@ function update(json) {
     chart.update();
 }
 
+// this function updates the graph
+function clearGraph() {
+    labels.length = 0;
+    dataArr.length = 0;
+    chart.update();
+}
+
+// this funtion is called when the graph is paused
 function pauseGraph() {
     // check if the graph is paused
     if (graphPaused) {
@@ -103,7 +111,7 @@ function buildChart() {
 request.open("POST", url, true);
 request.setRequestHeader("Content-Type", "application/json");
 
-request.onreadystatechange = function () {
+request.onreadystatechange = function() {
     if (request.readyState === 4 && request.status === 200) {
         //parse the object
         var data = JSON.parse(request.response);
